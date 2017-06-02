@@ -21,7 +21,15 @@ findDisplay 12 displayaddEventHandler ["MouseButtonDown",
 findDisplay 12 displayaddEventHandler ["MouseButtonUp",
 	{if (!isnil "myDistance" && myDistance > 1) then
 		{
-			hint format ["Distance: %1 meters",round myDistance];
+			_displaytext =  format ["Distance: %1 meters",round myDistance];
+			if ("ace_common" in configSourceAddonList (configFile )) then
+				{
+					[_displaytext] call ace_common_fnc_displayTextStructured;
+				}
+			else
+			  {
+					hint _displaytext;
+				};
 			missionNamespace setVariable ["myDistance", nil];
 			missionNamespace setVariable ["myStartCoordinates", nil];
 			((findDisplay 12) displayCtrl 51) ctrlRemoveAllEventHandlers "MouseMoving"
