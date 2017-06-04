@@ -39,8 +39,8 @@ findDisplay 12 displayaddEventHandler ["MouseButtonUp",
 			  {
 					hint _displaytext;
 				};
-			missionNamespace setVariable ["myDistance", nil];
-			missionNamespace setVariable ["myStartCoordinates", nil];
+			player setVariable ["buur_mapmeasurere_myDistance", nil];
+			player setVariable ["buur_mapmeasurer_start", nil];
 			_id_MouseMoving = player getVariable "buur_mapmeasurer_id_MouseMoving";
 			((findDisplay 12) displayCtrl 51) ctrlRemoveEventHandler ["MouseMoving",_id_MouseMoving];
 		};
