@@ -31,9 +31,12 @@ findDisplay 12 displayaddEventHandler ["MouseButtonUp",
 		{
 			private ["_displaytext","_id_MouseMoving"];
 			_displaytext =  format ["Distance: %1 meters",round (player getVariable "buur_mapmeasurere_myDistance")];
-			if ("ace_common" in configSourceAddonList (configFile )) then
+			if (("ace_common" in configSourceAddonList (configFile )) && ("ace_interaction" in configSourceAddonList (configFile ))  ) then
 				{
-					[_displaytext] call ace_common_fnc_displayTextStructured;
+					if (("ACE_MapTools" in items player)) then
+						{
+							[_displaytext] call ace_common_fnc_displayTextStructured;
+						};
 				}
 			else
 			  {
